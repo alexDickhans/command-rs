@@ -1,0 +1,8 @@
+[package]
+name = "command-rs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+lazy_static = { version = "1.5.0", default-features = false, features = ["spin_no_std"] }
+vexide = { version = "0.3.0" , default-features = false, features = ["core"]}
