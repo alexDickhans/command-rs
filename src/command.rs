@@ -24,9 +24,7 @@ pub trait Command {
         false
     }
 
-    fn requirements(&self) -> &[AnySubsystem] {
-        &[]
-    }
+    fn requirements(&self) -> &[AnySubsystem];
 
     fn runs_when_disabled(&self) -> bool {
         false
@@ -116,5 +114,9 @@ impl Command for WaitCommand {
 
     fn finished(&self) -> bool {
         Instant::now() - self.start_time.expect("Initialize failed to run") > self.duration
+    }
+
+    fn requirements(&self) -> &[AnySubsystem] {
+        &[]
     }
 }
